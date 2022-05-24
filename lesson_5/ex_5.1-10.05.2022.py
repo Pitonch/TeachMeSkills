@@ -18,7 +18,7 @@ def pos_neg(input_number: str):
         else:
             return "you didn't enter a number2"
     else:
-        return "you didn't enter a number1"
+        return "you didn't enter a number1 амам"
 
 
 input_number = input('inset a number: ')
