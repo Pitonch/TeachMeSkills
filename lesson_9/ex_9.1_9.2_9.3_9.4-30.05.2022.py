@@ -5,16 +5,23 @@ class BookLibrary:
         self.author = author
         self.page = page
 
-
-    def pages(self):
-        return ((self.page))
-
-
-    def books(self):
-        return "It's a cool book"
+    @staticmethod
+    def good_book():
+        print("It's a cool book")
 
 
-x = BookLibrary('bad', 'red', 'Remark', 11)
+    @classmethod
+    def type_of_book(cls, name, color, author, page):
+        return cls(name, color, author, page)
 
-print(x.pages())
-x.pages()
+
+
+
+book1 = BookLibrary("ray", 'black', 'tolstoj', 150)
+
+print(book1.name)
+book1.good_book()
+
+
+
+
