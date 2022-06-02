@@ -1,49 +1,59 @@
 import math
 
 
-def sum_(a:float, b:float):
-    return float(a)+float(b)
+# находим в строке оператор, который указывает на действие для выполнения, можно дополнять
+def input_(a):
+    if '+' in a:
+        return '+'
+    if '-' in a:
+        return '-'
+    if '*' in a:
+        return '*'
+    if '/' in a:
+        return '/'
+    if '^' in a:
+        return '^'
 
 
-def minus_(a:float, b:float):
-    return float(a)-float(b)
+# по оператору находим функцию которую нужно подключить в калькулятор
+def sum_():
+    i = insert_num.index('+')
+    a = insert_num[:i]
+    b = insert_num[i+1:]
+    return float(a) + float(b)
 
 
-def division_(a:float, b:float):
-    return float(a)/float(b)
+def minus_():
+    i = insert_num.index('-')
+    a = insert_num[:i]
+    b = insert_num[i+1:]
+    return float(a) - float(b)
 
 
-def multiplication_(a:float, b:float):
-    return float(a)*float(b)
+def division_():
+    i = insert_num.index('/')
+    a = insert_num[:i]
+    b = insert_num[i+1:]
+    return float(a) / float(b)
 
 
-def input_num():
-    return input('input number: ')
+def multiplication_():
+    i = insert_num.index('*')
+    a = insert_num[:i]
+    b = insert_num[i+1:]
+    return float(a) * float(b)
 
 
+insert_num = input("Введите выражение из двух значений: ").replace(' ', '')
 
-start = input("what kind of mathematical calculation will we do: "
-              "\n 'Sum' \n 'Minus' \n 'Division' \n 'MUltiplication' "
-              ": ").lower()
+if input_(insert_num) == '+':
+    print(sum_())
 
-if start == 's':
-    a = input_num()
-    b = input_num()
-    print(sum_(a, b))
+if input_(insert_num) == '-':
+    print(minus_())
 
+if input_(insert_num) == '/':
+    print(division_())
 
-if start == 'm':
-    a = input_num()
-    b = input_num()
-    print(minus_(a, b))
-
-
-if start == 'd':
-    a = input_num()
-    b = input_num()
-    print(division_(a, b))
-
-if start == 'mu':
-    a = input_num()
-    b = input_num()
-    print(multiplication_(a, b))
+if input_(insert_num) == '*':
+    print(multiplication_())
