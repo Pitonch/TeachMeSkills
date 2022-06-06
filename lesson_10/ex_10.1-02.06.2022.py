@@ -1,5 +1,5 @@
 import math
-
+import re
 
 # находим в строке оператор, который указывает на действие для выполнения, можно дополнять
 def input_(a):
@@ -45,15 +45,18 @@ def multiplication_():
 
 
 insert_num = input("Введите выражение из двух значений: ").replace(' ', '')
+x = re.fullmatch(r'^\d+[*-/+]\d+$', insert_num)
+if x is None:
+    print('вы ввели не верные данные')
+else:
+    if input_(insert_num) == '+':
+        print(sum_())
 
-if input_(insert_num) == '+':
-    print(sum_())
+    if input_(insert_num) == '-':
+        print(minus_())
 
-if input_(insert_num) == '-':
-    print(minus_())
+    if input_(insert_num) == '/':
+        print(division_())
 
-if input_(insert_num) == '/':
-    print(division_())
-
-if input_(insert_num) == '*':
-    print(multiplication_())
+    if input_(insert_num) == '*':
+        print(multiplication_())
