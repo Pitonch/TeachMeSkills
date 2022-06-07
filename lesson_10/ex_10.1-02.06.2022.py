@@ -44,9 +44,9 @@ def multiplication_():
     return float(a) * float(b)
 
 
-insert_num = input("Введите выражение из двух значений: ").replace(' ', '')
-x = re.fullmatch(r'^\d+[*-/+]\d+$', insert_num)
-if x is None:
+insert_num = input("Введите выражение из двух значений: ").replace(' ', '').replace(',', '.')
+x = re.fullmatch(r'^\-?\d+[*-/+]\d+$', insert_num)
+if not x:
     print('вы ввели не верные данные')
 else:
     if input_(insert_num) == '+':
